@@ -1,3 +1,16 @@
 [submodule "app/Mint"]
 	path = app/Mint
 	url = git@github.com:Olivine-Labs/Mint.git
+[submodule "app/js/libs/backbone"]
+	path = app/js/libs/backbone
+	url = https://github.com/documentcloud/backbone
+[submodule "app/js/libs/underscore"]
+	path = app/js/libs/underscore
+	url = https://github.com/documentcloud/underscore
+[submodule "app/js/libs/json2"]
+	path = app/js/libs/json2
+	url = https://github.com/douglascrockford/JSON-js
+[submodule "app/js/libs/mustache"]
+	path = app/js/libs/mustache
+	url = https://github.com/janl/mustache.js/
+  
