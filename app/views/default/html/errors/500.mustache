@@ -1,0 +1,31 @@
+{{> header}}
+    <div id="main" role="main">
+      <div class="row">
+        <div class="twelvecol">
+          <article>
+            <h1>500: Server Error</h1>
+            <p>Sorry, but the page you were trying to view appears to be broken.</p>
+
+            <h2>Debugging Information</h2>
+
+            {{#error}}
+              {{#verbose}}
+                <h3>Severity</h3>
+                <p>{{severity}}</p>
+
+                <h3>Message</h3>
+                <p>{{message}}</p>
+
+                <h3>Stack Trace</h3>
+                {{{stackTrace}}}
+              {{/verbose}}
+              {{^verbose}}
+                <h3>This error has been logged and reported to Neflarian webslaves.</h3>
+              {{/verbose}}
+            {{/error}}
+          </article>
+        </div>
+      </div>
+    </div>
+{{> footer}}
+

@@ -1,0 +1,26 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  UI Developer: Jack Lawson
+  Site: http://www.thejacklawson.com
+  Twitter: @ajacksified
+  Location: San Fransisco, CA
+
+  Server Developer: Drew Ditthardt 
+  Site: http://blog.olivinelabs.com
+  Location: San Francisco, CA
+
+  Server Developer: Dave Thomas
+  Site: 
+  Location: Rochester, NY
+
+  Graphic Designer: Danny Ngo
+  Site: 
+  Location: Toronto, Canada
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Modernizr, jQuery, html5 boilerplate
+  Software: vim, phpunit

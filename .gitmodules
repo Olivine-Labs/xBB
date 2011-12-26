@@ -1,0 +1,3 @@
+[submodule "app/Mint"]
+	path = app/Mint
+	url = git@github.com:Olivine-Labs/Mint.git

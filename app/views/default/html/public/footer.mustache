@@ -1,0 +1,55 @@
+  </div> <!--! end of #container -->
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="twelvecol">
+          <ul>
+            <li><a href="/About/TermsOfService/">Terms of Service</a>
+            <li><a href="/About/PrivacyPolicy/">Privacy Policy</a>
+            <li><a href="/About/Copyright/">Copyright</a>
+            <li><a href="/RSS/">RSS (Atom)</a>
+          </ul>
+          <a class="ir olivineLabs" href="http://www.olivinelabs.com" target="_blank">Olivine Labs</a>
+        </div>
+      </div>
+    </div>  
+  </footer>
+
+
+  <script src="//code.jquery.com/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/js/libs/jquery-1.7.min.js"><\/script>')</script>
+
+  <script src="//connect.facebook.net/en_US/all.js"></script>
+
+  {{#Debug}}
+    <script src="/js/plugins.js"></script>
+
+    <script src="/js/script.js"></script>
+  {{/Debug}}
+
+  {{^Debug}}
+    <script async src="/js/errything.js"></script>
+  {{/Debug}}
+
+  <script async type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4235223-1']);
+    _gaq.push(['_setDomainName', 'neflaria.com']);
+    _gaq.push(['_setAllowHash', false]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+  <!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+  
+</body>
+</html>
