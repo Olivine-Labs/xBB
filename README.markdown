@@ -37,12 +37,12 @@ instead of compiling it into the app.min.js.
 1. Install PHP, get it in your path
 2. `pecl install xdebug`
 3. Run these things:
-    pear channel-discover pear.symfony-project.com
-    pear channel-discover components.ez.no
-    pear channel-discover pear.phpunit.de
-    pear update-channels
-    pear install phpunit/PHPUnit
-    pear install PHP_CodeSniffer-beta
+    `pear channel-discover pear.symfony-project.com`
+    `pear channel-discover components.ez.no`
+    `pear channel-discover pear.phpunit.de`
+    `pear update-channels`
+    `pear install phpunit/PHPUnit`
+    `pear install PHP_CodeSniffer-beta`
 4. `sudo pecl install mongo`
 5. Update php.ini file to include extension=mongo.so [more details](http://www.mongodb.org/display/DOCS/PHP+Language+Center)
 6. Start the mongo server
