@@ -21,8 +21,19 @@ built on top of the html5 boilerplate wasn't enough*
 
 1. Install ruby, put it in your path, install bundler
 2. cd to path, `bundle install`
-3. `bundle exec guard` to watch and convert coffeescript and less
-4. `bundle exec rake jasmine` to fire up local jasmine testing server on port 8888
+3. Install Juicer needed files:
+    juicer install yui_compressor
+    juicer install closure_compiler
+    juicer install jslint
+4. `bundle exec guard` to start compressing and compiling coffeescript / sass automatically
+5. `bundle exec rake jasmine` to fire up local jasmine testing server on port 8888
+
+Note: update the guardfile minify process if you use different libraries. I
+hardcoded the paths since I'm pulling in the libs as submodules and I don't
+want to process and minify *everything* recursively, because we'd end up with
+a crapton of extra stuff we don't want, since we can't point to specific files
+through submodules. You might, for example, try to load jQuery externally
+instead of compiling it into the app.min.js.
 
 ### Server Dev
 
@@ -40,7 +51,3 @@ built on top of the html5 boilerplate wasn't enough*
 6. Start the mongo server
 7. Run mongo client, fire up the application or create the application database in your mongodb instance, then create
 the mongodb user with credentials specified in app/config/Database.config.php
-
-## TODO
-
-* Get coffeescript to compile all scripts together and minify it

@@ -11,13 +11,7 @@
 #   - dist/**/*.js
 #
 src_files:
-    - app/js/libs/jquery-1.7.1.min.js
-    - app/js/libs/json2/json2.js
-    - app/js/libs/underscore/underscore.js
-    - app/js/libs/backbone/backbone.js
-    - app/js/libs/mustache/mustache.js
-    - app/js/mylibs/**/*.js
-    - app/js/app/**/*.js
+    - app/app.min.js
 
 # stylesheets
 #

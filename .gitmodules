@@ -14,3 +14,6 @@
 	path = app/js/libs/mustache
 	url = https://github.com/janl/mustache.js/
   
+[submodule "app/js/libs/jquery"]
+	path = app/js/libs/jquery
+	url = https://github.com/jquery/jquery.git
