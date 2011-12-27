@@ -4,8 +4,18 @@ Mint Boilerplate
 *Because my [jasmine-css-coffeescript-backbone](https://github.com/ajacksified/Jasmine-Backbone-SASS-HTML5-Boilerplate)
 built on top of the html5 boilerplate wasn't enough*
 
-Setup
------
+## What's Included?
+
+* A place to put your non-app assets
+* PHPUnit structure for your server-side tests
+* Guardfile that converts coffeescript and sass to their respective things
+* Jasmine gem for your TDD pleasure (guardfile will convert coffeescript tests)
+* Underscore, jQuery, Backbone, and json2 pulled in as submodules for client work
+* Mint pulled in as a submodule for your server work
+* Default configurations for all of these things
+* [1140 grid](http://cssgrid.net/)
+
+## Setup
 
 ### UI Dev
 
@@ -30,3 +40,7 @@ Setup
 6. Start the mongo server
 7. Run mongo client, fire up the application or create the application database in your mongodb instance, then create
 the mongodb user with credentials specified in app/config/Database.config.php
+
+## TODO
+
+* Get coffeescript to compile all scripts together and minify it
