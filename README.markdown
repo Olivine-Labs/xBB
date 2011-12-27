@@ -14,6 +14,7 @@ built on top of the [html5 boilerplate](http://html5boilerplate.com/) wasn't eno
 * Mint pulled in as a submodule for your server work
 * Default configurations for all of these things
 * [1140 grid](http://cssgrid.net/)
+* [Mustache tempalating system](http://mustache.github.com/) instead of raw PHP
 
 ## Setup
 
@@ -48,3 +49,28 @@ instead of compiling it into the app.min.js.
 6. Start the mongo server
 7. Run mongo client, fire up the application or create the application database in your mongodb instance, then create
 the mongodb user with credentials specified in app/config/Database.config.php
+
+
+## How To
+
+### UI Dev
+
+(feel free to use subdirs for any of these)
+
+* Fire up guard (if you followed the steps above, you've ran `guard` already)
+* Write your views using [Mustache](http://mustache.github.com/) and put them in app/views/
+* Write coffeescript in app/src/coffeescript/ (structure pre-set-up for backbone work) or in javascript in
+app/javascript/
+* Write sass in app/src/sass or css in app/css 
+* Write tests in spec/coffeescripts or spec/javascripts, and if you've started the server by running `bundle exec rake jasmine`
+you can head to [localhost:8888](http://localhost:8888) to see all of your tests
+
+### Server Dev
+
+* Write handlers in app/handlers using VERB.handler.php, copypaste the example to get the hang of it, and write your own
+base handler classes. GET.handler.php, POST.handler.php, etc. Paths determine the path used to access it. For
+app/handlers/coffee/GET.handler.php, if you make a GET request to localhost/coffee, it'll hit it. Simple!
+* Uses MongoDB classes, so fill out some stuff in core-config. Take a look at the user class stuff in app/Mint to see
+how we do it.
+* Update your config at app/config, since you probably don't want to use the default database credentials
+* Write PHPUnit tests in spec/php
