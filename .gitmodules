@@ -17,3 +17,6 @@
 [submodule "app/js/libs/jquery"]
 	path = app/js/libs/jquery
 	url = https://github.com/jquery/jquery.git
+[submodule "assets/bootstrap/src"]
+	path = assets/bootstrap/src
+	url = https://github.com/twitter/bootstrap.git
