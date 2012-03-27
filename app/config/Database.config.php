@@ -12,6 +12,33 @@ $Settings->Collection	= 'Sessions';
 $Settings->ClassName	= '\Database\Collections\MongoDB\SessionCollection';
 $this->addCollection($Settings);
 
+//Boards Settings
+$Settings = new \Database\Settings();
+$Settings->Name			  = 'Boards';
+$Settings->Driver		  = 'MongoDB';
+$Settings->Host			  = 'localhost';
+$Settings->Port			  = 27017;
+$Settings->User			  = 'Application';
+$Settings->Password		= 'ApplicationPW';
+$Settings->Database		= 'xBB';
+$Settings->Collection	= 'Boards';
+$Settings->ClassName	= '\Database\Collections\MongoDB\BoardCollection';
+$this->addCollection($Settings);
+
+//Posts Settings
+$Settings = new \Database\Settings();
+$Settings->Name			  = 'Posts';
+$Settings->Driver		  = 'MongoDB';
+$Settings->Host			  = 'localhost';
+$Settings->Port			  = 27017;
+$Settings->User			  = 'Application';
+$Settings->Password		= 'ApplicationPW';
+$Settings->Database		= 'xBB';
+$Settings->Collection	= 'Posts';
+$Settings->ClassName	= '\Database\Collections\MongoDB\PostCollection';
+$this->addCollection($Settings);
+
+
 //User Settings
 $Settings = new \Database\Settings();
 $Settings->Name			  = 'Users';

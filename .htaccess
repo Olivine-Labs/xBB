@@ -492,10 +492,10 @@ php_value session.cookie_domain ".neflaria.dev"
 #URI Rewriting
 <IfModule mod_rewrite.c>
   RewriteBase /
-  RewriteRule ^$ php/Mint.php?_route_= [E=CONTENT_TYPE:%{HTTP:Content-Type},L,QSA]
+  RewriteRule ^$ xBB/app/Mint/core/Mint.php?_route_= [E=CONTENT_TYPE:%{HTTP:Content-Type},L,QSA]
 
   RewriteBase /
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^(.*)\?*$ core/Mint.php?_route_=$1 [E=CONTENT_TYPE:%{HTTP:Content-Type},L,QSA]
+  RewriteRule ^(.*)\?*$ xBB/app/Mint/core/Mint.php?_route_=$1 [E=CONTENT_TYPE:%{HTTP:Content-Type},L,QSA]
 </IfModule>

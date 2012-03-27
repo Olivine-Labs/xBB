@@ -1,6 +1,234 @@
 {{> header}}
-    <div id="main" role="main">
+<div class="row">
+        <!-- logo: board name, or replace 'Board Logo' with an image -->
+        <div class="span4">
+          <h1><a href="/">Board Logo</a></h1>
+        </div>
 
-   </div>
+        <!-- profile info -->
+        <div id="profile" class="pull-right">
+          <div class="pull-right">
+            <ul class="nav nav-list">
+              <li>
+                <a href="/messages"><span class="icon-envelope"></span> 3 Messages</a>
+              </li>
+              <li>
+                <a href="/topics?filter=replies"><span class="icon-asterisk"></span> 14 New Replies</a>
+              </li>
+              <li>
+                <a href="/user/edit/12345"><span class="icon-user"></span> Settings</a>
+              </li>
+            </ul>
+          </div>
 
+          <a href="/user/12345"><img src="http://placehold.it/64x64" alt="Jack Lawson"></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- most recent 5 posts in this board; may need to truncate long titles. alt text is most recent post date -->
+    <div class="subnav visible-desktop">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <ul class="nav nav-pills">
+              <li class="nav-header">Latest Posts</li>
+              <li><a href="/topics/17" title="March 3 8:20PM">Pulling Submodules [14]</a></li>
+              <li><a href="/topics/18" title="March 3 7:28PM">MongoDB Config [8]</a></li>
+              <li><a href="/topics/19" title="March 3 6:03PM">v1agr4 ch33p [1]</a></li>
+              <li><a href="/topics/20" title="March 3 5:23PM">8====D~~ [39]</a></li>
+              <li><a href="/topics/21" title="March 3 4:40PM">Mint is Amazing and... [108]</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- board -->
+  <div role="main">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <h1>Exoplay Installation</h1>
+
+          <!-- list sub-boards -->
+          <ul class="nav nav-pills">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Sub-Boards <b class="caret"></b> </a>
+              <ul class="dropdown-menu">
+                <li><a href="/boards/2">Technical Questions</a></li>
+                <li><a href="/boards/3">Customizing Styles</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- the topics. article id is post id -->
+      <article id="12345">
+        <div class="row">
+          <div class="hidden-phone">
+            <div class="span1">
+              <div><span class="icon-eye-open"></span> 38</div>
+              <div><span class="icon-comment"></span> 14</div>
+
+              <div class="btn-group">
+                <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">Actions <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#"><span class="icon-comment"></span> View Topic</a></li>
+                  <li><a href="#"><span class="icon-user"></span> Jack Lawson's Profile</a></li>
+                  <li><a href="#"><span class="icon-cog"></span> Edit Topic</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="span11">
+            <h1><a href="/topics/1234">Pulling Submodules</a></h1>
+            <p>
+              This is the first line of text for this topic; around 65 characters.
+              This is the first line of text for this topic; around 65 characters.
+            </p>
+
+            <footer>
+              posted by <a href="/users/12345">Jack Lawson</a> on
+              <time datetime="2012-03-17T23:26:31-04:00" title="2012-03-17T23:26:31-04:00">March 3 11:26</time>.
+            </footer>
+          </div>
+        </div>
+      </article>
+
+      <article id="12345">
+        <div class="row">
+          <div class="hidden-phone">
+            <div class="span1">
+              <div><span class="icon-eye-open"></span> 38</div>
+              <div><span class="icon-comment"></span> 14</div>
+
+              <div class="btn-group">
+                <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">Actions <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#"><span class="icon-comment"></span> View Topic</a></li>
+                  <li><a href="#"><span class="icon-user"></span> Jack Lawson's Profile</a></li>
+                  <li><a href="#"><span class="icon-cog"></span> Edit Topic</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="span11">
+            <h1><a href="/topics/1234">Pulling Submodules</a></h1>
+            <p>
+              This is the first line of text for this topic; around 65 characters.
+              This is the first line of text for this topic; around 65 characters.
+            </p>
+
+            <footer>
+              posted by <a href="/users/12345">Jack Lawson</a> on
+              <time datetime="2012-03-17T23:26:31-04:00" title="2012-03-17T23:26:31-04:00">March 3 11:26</time>.
+            </footer>
+          </div>
+        </div>
+      </article>
+
+      <article id="12345">
+        <div class="row">
+          <div class="hidden-phone">
+            <div class="span1">
+              <div><span class="icon-eye-open"></span> 38</div>
+              <div><span class="icon-comment"></span> 14</div>
+
+              <div class="btn-group">
+                <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">Actions <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#"><span class="icon-comment"></span> View Topic</a></li>
+                  <li><a href="#"><span class="icon-user"></span> Jack Lawson's Profile</a></li>
+                  <li><a href="#"><span class="icon-cog"></span> Edit Topic</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="span11">
+            <h1><a href="/topics/1234">Pulling Submodules</a></h1>
+            <p>
+              This is the first line of text for this topic; around 65 characters.
+              This is the first line of text for this topic; around 65 characters.
+            </p>
+
+            <footer>
+              posted by <a href="/users/12345">Jack Lawson</a> on
+              <time datetime="2012-03-17T23:26:31-04:00" title="2012-03-17T23:26:31-04:00">March 3 11:26</time>.
+            </footer>
+          </div>
+        </div>
+      </article>
+
+      <article id="12345">
+        <div class="row">
+          <div class="hidden-phone">
+            <div class="span1">
+              <div><span class="icon-eye-open"></span> 38</div>
+              <div><span class="icon-comment"></span> 14</div>
+
+              <div class="btn-group">
+                <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">Actions <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#"><span class="icon-comment"></span> View Topic</a></li>
+                  <li><a href="#"><span class="icon-user"></span> Jack Lawson's Profile</a></li>
+                  <li><a href="#"><span class="icon-cog"></span> Edit Topic</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="span11">
+            <h1><a href="/topics/1234">Pulling Submodules</a></h1>
+            <p>
+              This is the first line of text for this topic; around 65 characters.
+              This is the first line of text for this topic; around 65 characters.
+            </p>
+
+            <footer>
+              posted by <a href="/users/12345">Jack Lawson</a> on
+              <time datetime="2012-03-17T23:26:31-04:00" title="2012-03-17T23:26:31-04:00">March 3 11:26</time>.
+            </footer>
+          </div>
+        </div>
+      </article>
+
+      <article id="12345">
+        <div class="row">
+          <div class="hidden-phone">
+            <div class="span1">
+              <div><span class="icon-eye-open"></span> 38</div>
+              <div><span class="icon-comment"></span> 14</div>
+
+              <div class="btn-group">
+                <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">Actions <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#"><span class="icon-comment"></span> View Topic</a></li>
+                  <li><a href="#"><span class="icon-user"></span> Jack Lawson's Profile</a></li>
+                  <li><a href="#"><span class="icon-cog"></span> Edit Topic</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="span11">
+            <h1><a href="/topics/1234">Pulling Submodules</a></h1>
+            <p>
+              This is the first line of text for this topic; around 65 characters.
+              This is the first line of text for this topic; around 65 characters.
+            </p>
+
+            <footer>
+              posted by <a href="/users/12345">Jack Lawson</a> on
+              <time datetime="2012-03-17T23:26:31-04:00" title="2012-03-17T23:26:31-04:00">March 3 11:26</time>.
+            </footer>
+          </div>
+        </div>
+      </article>
+    </div>
 {{> footer}}
