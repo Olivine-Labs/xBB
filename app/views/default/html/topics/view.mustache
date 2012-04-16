@@ -1,0 +1,22 @@
+  {{> header}}
+  	  {{#Topic}}
+		{{> user}}
+    <!-- most recent 5 posts in this board; may need to truncate long titles. alt text is most recent post date -->
+  </header>
+  <!-- board -->
+  <div role="main">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <h1>{{Name}}</h1> 
+        </div>
+
+      </div>
+	  {{> viewTopic}}
+	  <div>
+	  	<a class="btn" href="/posts/save/{{Id}}">Reply</a>
+
+    </div>
+  </div>
+  {{/Topic}}
+  {{> footer}}

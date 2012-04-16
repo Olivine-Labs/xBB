@@ -24,8 +24,9 @@
   <header>
     <!-- breadcrumbs : list of forum board levels -->
     <ul class="breadcrumb">
-      <li><a href="/">xBB Developer Forums</a> <span class="divider">/</span></li>
-      <li class="active"><a href="/boards/123123123">Installation Help</a></li>
+                  {{#Breadcrumbs}}
+              <li> / <a href="{{href}}">{{text}}</a></li>
+            {{/Breadcrumbs}} 
     </ul>
 
     <div class="container">

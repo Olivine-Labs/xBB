@@ -1,0 +1,55 @@
+  {{> header}}
+  	  {{#Board}}
+      <div class="row">
+
+        <!-- logo: board name, or replace 'Board Logo' with an image -->
+        <div class="span4">
+          <h1><a href="/">{{Name}}</a></h1>
+        </div>
+		{{> user}}
+    <!-- most recent 5 posts in this board; may need to truncate long titles. alt text is most recent post date -->
+    <div class="subnav visible-desktop">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <ul class="nav nav-pills">
+              <li class="nav-header">Latest Posts</li>
+              <li><a href="/topics/17" title="March 3 8:20PM">Pulling Submodules [14]</a></li>
+              <li><a href="/topics/18" title="March 3 7:28PM">MongoDB Config [8]</a></li>
+              <li><a href="/topics/19" title="March 3 6:03PM">v1agr4 ch33p [1]</a></li>
+              <li><a href="/topics/20" title="March 3 5:23PM">8====D~~ [39]</a></li>
+              <li><a href="/topics/21" title="March 3 4:40PM">Mint is Amazing and... [108]</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- board -->
+  <div role="main">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <h1>{{Name}}</h1> 
+		{{#SubBoards}}
+          <!-- list sub-boards -->
+          <ul class="nav nav-pills">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Sub-Boards <b class="caret"></b> </a>
+              <ul class="dropdown-menu">
+                <li><a href="/boards/{{Id}}">{{Name}}</a></li>
+			  </ul>
+            </li>
+          </ul>
+		  {{/SubBoards}}
+        </div>
+
+      </div>
+	  {{> viewBoard}}
+	  <div>
+	  	<a class="btn" href="/topics/save/{{Id}}">Submit New Topic</a>
+
+    </div>
+  </div>
+  {{/Board}}
+  {{> footer}}

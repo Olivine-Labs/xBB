@@ -13,7 +13,7 @@ class Post extends Model
   public	$PostedOn			= null;
   public	$PostedByName	= null;
   public	$Body				  = null;
-  public  $Board       = null;
+  public  $Topic       = null;
 
   public function __construct()
   {
@@ -45,11 +45,6 @@ class Post extends Model
   public function FormattedPostedOn()
   {
     return date('c', $this->PostedOn);
-  }
-
-  public function NumberOfVotes()
-  {
-    return count($this->Votes);
   }
 }
 ?>

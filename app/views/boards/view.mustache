@@ -1,0 +1,27 @@
+  {{> header}}
+  <!-- board -->
+  <div role="main">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <h1>{{Name}}</h1>
+			{{#SubBoards}}
+          <!-- list sub-boards -->
+          <ul class="nav nav-pills">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Sub-Boards <b class="caret"></b> </a>
+              <ul class="dropdown-menu">
+			  {{#Items}}
+                <li><a href="/boards/2">Technical Questions</a></li>
+                <li><a href="/boards/3">Customizing Styles</a></li>
+				{{/Items}}
+			  </ul>
+            </li>
+          </ul>
+		  {{/SubBoards}}
+        </div>
+      </div>
+	  {{> viewBoard}}
+    </div>
+  </div>
+  {{> footer}}

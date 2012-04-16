@@ -1,0 +1,36 @@
+{{> header}}
+
+    <div id="main" role="main">
+      <div class="row">
+        <section class="twelvecol">
+          {{#CurrentUser}}
+            {{#Error}}            
+              <p><em class="notice">{{Error}}</em></p>
+            {{/Error}}
+
+            <h1>Edit Your Settings</h1>
+            <h2>{{UserName}}</h2>
+
+            <form action="/Members/{{UserName}}" method="post">
+              <input type="hidden" name="_method" value="PUT" />
+
+              <label for="user_userName">Username</label>
+              <input id="user_userName" name="username" value="{{UserName}}">
+
+              <label for="user_email">Email</label>
+              <input id="user_email" name="email" value="{{Email}}">
+
+              <label for="board_cssoverride">New Password</label>
+              <input id="user_password" name="password" value="" type="password">
+
+              <button type="submit">Submit</button>
+            </form>
+          {{/CurrentUser}}
+        </section>
+      </div>
+    </div>
+
+{{> footer}}
+
+
+

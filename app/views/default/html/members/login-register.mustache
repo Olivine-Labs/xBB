@@ -1,0 +1,95 @@
+{{> header}}
+
+    <div id="main" role="main">
+      <div class="row">
+        <div class="span12">
+          {{#CurrentUser}}
+            {{#LoggedIn}}
+            <div class="alert alert-info">
+              You're already signed in as {{UserName}}. 
+              <a href="/Members/LogOut/">Log out?</a>
+            </div>
+            {{/ LoggedIn}}
+          {{/CurrentUser}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span6">
+          <form action="/Members/" method="post" class="well">
+            <h1>Register With xBB</h1>
+
+            {{#RegistrationError}}
+              {{> error }}
+            {{/RegistrationError}}
+
+            <div class="control-group">
+              <label class="control-label" for="reg_email">Email</label>
+
+              <div class="controls">
+                <input id="reg_email" name="email"  value="{{Email}}" />
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label" for="reg_password">Password</label>
+
+              <div class="controls">
+                <input id="reg_password" name="password" type="password"  value="" />
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label" for="reg_username">Display Name</label>
+
+              <div class="controls">
+                <input id="reg_username" name="username" value="{{UserName}}" />                
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <p class="help-block">
+                We won't display your email anywhere on the site. It is used to 
+                validate and communicate with you about your account.
+                <a href="/About/PrivacyPolicy/">Privacy Policy</a>
+              </p>
+
+              <button type="submit" class="btn btn-primary"><span class="icon-user icon-white"></span> Register</button>
+              <a href="/" class="btn"><span class="icon-remove-sign"></span> Cancel</a>
+            </div>
+          </form>
+        </div>
+
+        <div class="span6">
+          <form action="/Members/Login/" method="post" class="well">
+            <h1>Login With xBB</h1>
+
+              {{#LoginError}}
+                {{> error }}
+              {{/LoginError}}
+
+              <div class="control-group">
+                <label class="control-label" for="login_email">Email</label>
+                <div class="controls">
+                  <input id="login_email" name="email" value="{{Email}}"  />
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="login_password">Password</label>
+                <div class="controls">
+                  <input id="login_password" name="password" type="password" />
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary"><span class="icon-user icon-white"></span> Login</button>
+                <a href="/" class="btn"><span class="icon-remove-sign"></span> Cancel</a>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+
+{{> footer}}
+

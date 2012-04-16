@@ -1,25 +1,24 @@
 <?php
 /*---------------------------------------------------------------------------
-  Board										2011 Olivine Labs
+  Topic										2011 Olivine Labs
 -----------------------------------------------------------------------------
   Namespace	: Models
-  Class		  : Board
+  Class		: Topic
 ---------------------------------------------------------------------------*/
 namespace Models;
 
-class Board extends Model
+class Topic extends Model
 {
-  public		$Name   	        = null;
-  public		$Description   	        = null;
-  public		$Administrators		= array();
-  public		$Moderators	      = array();
-  public        $ParentBoard = null;
+
+  public  $Board	   = null;
+  public  $Name   	   = null;
+
   public function __construct()
   {
     parent::__construct();
   }
-
-  public function Verify()
+  
+   public function Verify()
   {
     $this->Name = trim($this->Name);
     if(

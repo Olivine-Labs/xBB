@@ -36,13 +36,12 @@ class BoardCollection extends Collection implements \Database\Collections\BoardI
   {
     $fields = array();
     $searchArray = array();
-
+	
     if($search->Board)
     {
       $searchArray[] = array(self::FIELD_NAME => new \MongoRegex(str_replace(".", "\\.", "/.*".$search->Board."/")));
     }
-
-	$this; //WAT WHY DOES THIS WORK?
+	
     if(count($searchArray) > 1)
     {
       $searchArray = array('$and'=>$searchArray);
@@ -53,22 +52,22 @@ class BoardCollection extends Collection implements \Database\Collections\BoardI
     }
 	
     $data = $this->Collection->find($searchArray, $fields);
-
+	
     if($search->SortField !== null)
       $data = $data->sort(array($search->SortField => $search->SortDirection));
 
     $data = $data->limit($search->Limit)->skip($search->Skip);
 
     $result = array('Count'=>0, 'Items'=>array());
-
+    
     if($data)
     {
       $result['Count'] = $data->count();
       foreach($data as $board)
       {
-        $aDomain = new \Models\Board();
-        $this->fill($aDomain, $board);
-        $result['Items'][] = $aDomain;
+        $aBoard = new \Models\Board();
+        $this->fill($aBoard, $board);
+        $result['Items'][] = $aBoard;
       }
     }
 

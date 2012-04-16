@@ -14,7 +14,7 @@ class PostCollection extends Collection implements \Database\Collections\PostInt
   const FIELD_POSTEDON      = 'PostedOn';
   const FIELD_POSTEDBYNAME  = 'PostedByName';
   const FIELD_BODY          = 'Body';
-  const FIELD_BOARD        = 'Board';
+  const FIELD_TOPIC        = 'Topic';
 
   protected function toArray(\Models\Model $model)
   {
@@ -28,19 +28,19 @@ class PostCollection extends Collection implements \Database\Collections\PostInt
     $fields = array();
     $searchArray = array();
 	
-    if($search->PostedBy)
-    {
-      $searchArray[] = array(self::FIELD_POSTEDBY => $search->PostedBy);
-    }
+    // if($search->PostedBy)
+    // {
+      // $searchArray[] = array(self::FIELD_POSTEDBY => $search->PostedBy);
+    // }
 
-    if($search->PostedByName)
+    // if($search->PostedByName)
+    // {
+      // $searchArray[] = array(self::FIELD_POSTEDBYNAME => $search->PostedByName);
+    // }
+	
+    if($search->Topic)
     {
-      $searchArray[] = array(self::FIELD_POSTEDBYNAME => $search->PostedByName);
-    }
-
-    if($search->Board)
-    {
-      $searchArray[] = array(self::FIELD_BOARD => new \MongoRegex(str_replace(".", "\\.", "/.*".$search->Board."/")));
+      $searchArray[] = array(self::FIELD_TOPIC => new \MongoRegex(str_replace(".", "\\.", "/.*".$search->Topic."/")));
     }
 
     if(count($searchArray) > 1)

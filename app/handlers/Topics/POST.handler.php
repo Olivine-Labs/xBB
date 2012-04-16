@@ -1,13 +1,19 @@
 <?php
+
 final class RequestHandler extends \Router\AuthenticationHandler
 {
   public function Request()
-  {	
-    $currentUser = $this->currentUser();
+  {
+       $currentUser = $this->currentUser();
 //    if(\Controllers\Boards::CheckAccess($currentUser, $board))
 //    {
 	  $topic = new \Models\Topic();
-	  $topic->Id = $_REQUEST['topicId'];
+      
+	  $boardId = $_REQUEST['boardId'];
+	  $topic->Name = $_REQUEST['subject'];
+	  $topic->Board = $boardId;
+	  
+	  \Controllers\Topics::Add($topic);
 	  
 	  $post = new \Models\Post();
 	  $post->Topic = $topic->Id;

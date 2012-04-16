@@ -1,0 +1,53 @@
+{{> header}}
+    <div id="main" role="main">
+      <div class="row">
+        <section class="span8">
+          <h1>Member page for {{MemberUserName}}</h1>
+
+          {{#IsMe}}
+            <p><a href="/Members/Settings/" class="action">Account Settings</a></p>
+          {{/IsMe}}
+
+          {{#Quotes}}
+            {{#Items}}
+              {{>viewQuote}}
+            {{/Items}}
+          {{/Quotes}}
+          
+          <p>
+            <a href="/Quotes/List/?order=score&keywords={{ MemberUserName }}" class="action">View More by {{ MemberUserName }}</a>
+          </p>
+        </section>
+
+        <aside class="span4">
+          <section class="well">
+            <h1 class="visuallyhidden">Stats</h1>
+
+            <h2>Total Score</h2>
+
+            {{#TotalScore }}
+              <p>{{ TotalScore }}</p>
+            {{/TotalScore }}
+
+            {{^TotalScore }}
+              <p>0</p>
+            {{/TotalScore }}
+
+            <h2>Quotes</h2>
+            <p>{{ NumberOfQuotes }}</p>
+
+            {{#IsMe}}
+              <h2>User ID</h2>
+              <p>{{ UserId }}</p>
+
+              <h2>API Token</h2>
+              <p>{{ Token }}</p>
+
+              <p><a href="/Members/GenerateToken/?_method=PUT" class="btn btn-warning">Generate Token</a></p>
+            {{/IsMe}}
+          </section>
+        </aside>
+      </div>
+    </div>
+{{> footer}}
+

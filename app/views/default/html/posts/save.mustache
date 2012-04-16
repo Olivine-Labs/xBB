@@ -1,0 +1,38 @@
+{{> header}}
+
+    <div id="main" role="main">
+      <div class="row">
+        <div class="twelvecol">
+          <section>
+            {{#Error}}            
+              <div class="alert alert-error">
+                <h4 class="alert-heading">Error:</h4>
+                <em>{{Error}}</em>
+              </div>
+            {{/Error}}
+
+            <h1>Post Reply</h1> 
+
+            {{#Post}}
+              <form action="/Posts/{{Id}}" method="post">
+                {{#Id}}<input type="hidden" name="_method" value="PUT" />{{/Id}}
+				{{#topicId}}
+					<input type="hidden" name="topicId" value="{{topicId}}" />
+				{{/topicId}}
+				<label for="subject">Subject<label>
+                <input id="subject" name="subject" type="text">{{Subject}}</textarea>
+				
+                <label for="body">Body<label>
+                <textarea id="body" name="body" class="large">{{Body}}</textarea>
+
+                <div>
+                  <button type="submit" class="btn btn-primary"><span class="icon-check icon-white"></span> Save Reply</button>
+                </div>
+              </form>
+            {{/Post}}
+          </section>
+        </div>
+      </div>
+    </div>
+
+{{> footer}}

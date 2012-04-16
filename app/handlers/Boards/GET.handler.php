@@ -3,137 +3,49 @@ final class RequestHandler extends \Router\AuthenticationHandler
 {
   public function Request()
   {
-    $boardName = \Common\GetLastPhrase($_SERVER['REQUEST_URI']);
+    $this->addPartial('header', 'public/header');
+    $this->addPartial('footer', 'public/footer');
+	$this->addPartial("user", "public/user");
+	
+	$boardId = \Common\GetLastPhrase($_SERVER['REQUEST_URI']);
+	
+      if($boardId == "Boards") $boardId = "";
 
-    if($boardName == "" || $boardName == "Boards")
-    {
-      $this->ListBoards();
-    }
-    else
-    {
-      $currentUser = $this->currentUser();
-
-      if(!$currentUser->LoggedIn)
+      if($boardId == "")
       {
-        $this->redirect('/Members/Login/');
-      }
-
-      $board = new \Models\Domain();
-      $board->Name = $boardName;
-
-      if(\Controllers\Domains::View($board) && !\Controllers\Domains::CheckAdministrator($currentUser, $board))
-      {
-        $this->setHTTPStatusCode(401);
-        $this->redirect('/');
+        $this->ListBoards();
       }
       else
       {
-        $this->ViewBoardSettings($board);
+        $this->ViewBoard($boardId);
       }
-    }
-  }
-    public function ViewBoardSettings($board)
+	}
+	
+  public function AnonymousRequest()
   {
-    $this->_context->Board = $board;
-
-    $administratorEmails = array();
-    $moderatorEmails = array();
-    $whiteListEmails = array();
-    $blackListEmails = array();
-
-    foreach($board->Administrators as $adminId)
-    {
-      if($adminId != $this->_context->CurrentUser->Id)
-      {
-        $user = new \Models\User();
-        $user->Id = $adminId;
-
-        if(\Controllers\Users::View($user))
-        {
-          $administratorEmails[] = array("Email" => $user->Email);
-        }
-      }
-    }
-
-    foreach($board->Moderators as $modId)
-    {
-      $user = new \Models\User();
-      $user->Id = $modId;
-
-      if(\Controllers\Users::View($user))
-      {
-        $moderatorEmails[] = array("Emails" => $user->Email);
-      }
-    }
-
-    foreach($board->WhiteList as $whiteListId)
-    {
-      $user = new \Models\User();
-      $user->Id = $whiteListId;
-
-      if(\Controllers\Users::View($user))
-      {
-        $whiteListEmails[] = array("Emails" => $user->Email);
-      }
-    }
-
-    foreach($board->BlackList as $blackListId)
-    {
-      $user = new \Models\User();
-      $user->Id = $blackListId;
-
-      if(\Controllers\Users::View($user))
-      {
-        $blackListEmails[] = array("Emails" => $user->Email);
-      }
-    }
-
-    $this->_context->Board->AdministratorEmails = $administratorEmails;
-    $this->_context->Board->ModeratorEmails = $moderatorEmails;
-    $this->_context->Board->WhiteListEmails = $whiteListEmails;
-    $this->_context->Board->BlackListEmails = $blackListEmails;
-
-
-    $this->addPartial('header', 'public/header');
-    $this->addPartial('footer', 'public/footer');
-
-    $this->setTemplate('boards/settings');
+    $this->redirect('/Members/Login/');
   }
-
-  public function ListBoards()
+  function ViewBoard($boardId)
   {
-
-    if(!is_numeric($page = \Common\GetLastPhrase($_SERVER['REQUEST_URI'])))
-      $page = 1;
-
-    $search = new \Models\Search();
-    $search->Limit = 10;
-    $search->SortField = 'Name';
-    $search->SortDirection = -1;
-    $search->Skip = $search->Limit * ($page-1);
-
-    $boards = \Controllers\Boards::ListBy($search);
-
-    $search = new \Models\Search();
-
-    foreach($boards['Items'] as &$board)
+    $this->_context->Board = new \Models\Board();
+    $this->_context->Board->Id = $boardId;
+   
+    if(!\Controllers\Boards::View($this->_context->Board))
     {
-      $search->Board = $board->Name;
-      $board->PostCount = \Controllers\Boards::CountBy($search);
+      $this->setHTTPStatusCode(404);
+      exit();
     }
+	$search = new \Models\Search();
+    $search->Board = $boardId;
+	$topics = \Controllers\Topics::ListBy($search);
 
-    $totalPages = 1;
-    $totalPages = ceil($boards['Count'] / $search->Limit);
+		$this->_context->Topics = $topics;
 
-    $this->_context->Boards = $boards;
- 
+    $this->addPartial("viewBoard", "Boards/Board-template");
+    $this->setTemplate('Boards/view');
 
-    $this->addPartial('header', 'public/header');
-    $this->addPartial('footer', 'public/footer');
-    //$this->addPartial('boardPaging', 'boards/board-paging');
-    //$this->addPartial('viewBoard', 'boards/board-template');
-
-    //$this->setTemplate('boards/list');
+    //$currentUser = $this->currentUser();
+    //$this->_context->Board->HasBoardPermissions = \Controllers\Domains::CheckModerator($currentUser, $domain);
   }
 }
 

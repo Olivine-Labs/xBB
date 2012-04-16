@@ -38,6 +38,18 @@ $Settings->Collection	= 'Posts';
 $Settings->ClassName	= '\Database\Collections\MongoDB\PostCollection';
 $this->addCollection($Settings);
 
+//Topics Settings
+$Settings = new \Database\Settings();
+$Settings->Name			  = 'Topics';
+$Settings->Driver		  = 'MongoDB';
+$Settings->Host			  = 'localhost';
+$Settings->Port			  = 27017;
+$Settings->User			  = 'Application';
+$Settings->Password		= 'ApplicationPW';
+$Settings->Database		= 'xBB';
+$Settings->Collection	= 'Topics';
+$Settings->ClassName	= '\Database\Collections\MongoDB\TopicCollection';
+$this->addCollection($Settings);
 
 //User Settings
 $Settings = new \Database\Settings();

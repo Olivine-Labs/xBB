@@ -14,6 +14,7 @@ class Search extends Model
   public	$Limit				    = 10;
   public	$Skip				      = 0;
   public  $Board           = null;
+  public $Topic            = null;
   public  $PostedBy         = null;
   public  $PostedByName     = null;
 

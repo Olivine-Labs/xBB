@@ -4,26 +4,26 @@ final class RequestHandler extends \Router\AuthenticationHandler
   public function Request()
   {
     $board = new \Models\Board();
-    if(\Controllers\Boards::CheckAccess($this->currentUser(), $board))
-    {
+    //if(\Controllers\Boards::CheckAccess($this->currentUser(), $board))
+    //{
       $postId = \Common\GetLastPhrase($_SERVER['REQUEST_URI']);
 
       if($postId == "Posts") $postId = ""; //TODO: Get Board Id and all posts
 
       if($postId == "")
       {
-        $this->ListQuotes();
+        $this->ListPosts();
       }
       else
       {
-        $this->ViewQuote($postId);
+        $this->ViewPost($postId);
       }
 	  
-    }
-    else
-    {
-      $this->setHTTPStatusCode(401);
-    }
+    //}
+    //else
+    //{
+    //  $this->setHTTPStatusCode(401);
+   // }
   }
 
   function ListPosts()

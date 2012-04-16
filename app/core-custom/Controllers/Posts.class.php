@@ -15,23 +15,27 @@ class Posts
     return $database->Posts->Load($post);
   }
   
+  public static function ListBy(\Models\Search $search)
+  {
+    return \Database\Controller::getInstance()->Posts->ListBy($search);
+  }
+  
   public static function Add(\Models\Post $post)
   {
     $session = \Classes\SessionHandler::getSession();
-    if(array_key_exists(\Models\Session::FIELD_USER, $session->Data))
-    {
+    //if(array_key_exists(\Models\Session::FIELD_USER, $session->Data))
+    //{
       $database = \Database\Controller::getInstance();
 
       $post->PostedOn = time();
-      $post->PostedBy = $session->Data[\Models\Session::FIELD_USER]['Id'];
-      $post->PostedByName = $session->Data[\Models\Session::FIELD_USER]['UserName'];
-      $post->Board = \Common\GetBoard();
+      //$post->PostedBy = $session->Data[\Models\Session::FIELD_USER]['Id'];
+      //$post->PostedByName = $session->Data[\Models\Session::FIELD_USER]['UserName'];
 
 	  if($post->Verify())
       {
         return $database->Posts->Save($post);
       }
-    } 
+    //} 
 
     return false;
   }
@@ -71,5 +75,6 @@ class Posts
   {
     $database = \Database\Controller::getInstance();
     return $database->Posts->Remove($post);
+  }
   }
 ?>
