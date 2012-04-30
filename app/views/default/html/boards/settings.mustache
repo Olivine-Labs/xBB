@@ -1,0 +1,92 @@
+{{> header}}
+
+    <div id="main" role="main">
+      {{#Board}}
+        <section>
+          <form action="/Boards/Settings" method="post">
+            <div class="row">
+
+              <div class="span12">
+                {{#Id}}
+                  <h1>Edit {{Title}}</h1>
+                {{/Id}}
+                {{^Id}}
+                  <h1>New Board</h1>
+                {{/Id}}
+
+                {{#Id}}
+                  <input type="hidden" name="_method" value="PUT" />
+                  <input type="hidden" name="Id" value="{{Id}}" />
+                {{/Id}}
+
+                <div class="control-group">
+                  <label class="control-label" for="board_title">Title</label>
+                  <div class="controls">
+                    <input id="board_title" name="title" value="{{Name}}">
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="board_description">Description</label>
+                  <div class="controls">
+                    <textarea id="board_description" name="description">{{Description}}</textarea>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {{#Id}}
+              <div class="row">
+                <div class="span6">
+                  <div class="well">
+                    <fieldset>
+                      <legend>Moderators</legend>
+
+                      <div class="alert alert-info">
+                        <p>
+                          Board moderators have access to delete quotes from the board
+                          quote list. They cannot access board settings.
+                        </p>
+
+                        <p>
+                          To remove a moderator, simply clear the textbox that holds 
+                          their name. To add a moderator, put their username in the 
+                          "new moderator" textbox.
+                        </p>
+                      </div>
+
+                      {{#ModeratorEmails}}
+                        <div class="control-group">
+                          <div class="controls">
+                            <input type="text" name="mods[]" value="{{Email}}" />
+                          </div>
+                        </div>
+                      {{/ModeratorEmails}}
+
+                      <div class="control-group">
+                        <label class="control-label" for="new_moderator">New Moderator Email</label>
+                        <div class="controls">
+                          <input id="new_moderator" type="text" name="mods[]" value="" />
+                        </div>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {{/Id}}
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <a href="/" class="btn">Cancel</a>
+            </div>
+          </form>
+        </section>
+      {{/Board}}
+    </div>
+
+{{> footer}}
+
+

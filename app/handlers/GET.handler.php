@@ -10,6 +10,7 @@ final class RequestHandler extends \Router\AuthenticationHandler
       $boards = \Controllers\Boards::ListBy($search);
 	  $currentUser = $this->currentUser();
 	  
+	  $this->_context->IsAdmin = $currentUser->IsAdmin;
 	  if (is_array($boards) && count($boards) > 0)
 	  {
 		$this->_context->Boards = $boards;

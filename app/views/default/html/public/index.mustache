@@ -32,6 +32,9 @@
 									<button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">Actions <span class="caret"></span></button>
 										<ul class="dropdown-menu">
 											<li><a href="../Boards/{{Id}}"><span class="icon-comment"></span> View Board</a></li>
+											{{#IsAdmin}}
+											<li><a href="../Boards/Save/{{Id}}"><span class="icon-comment"></span> Edit Board</a></li>
+											{{/IsAdmin}}
 										</ul>
 								</div>
 							</div>
@@ -50,7 +53,10 @@
 			No Boards Found
 		{{/Items}}
 		{{/Boards}}
-        </div>
+		{{#IsAdmin}}
+		<a class="btn" href="/Boards/save">New board</a>
+        {{/IsAdmin}}
+		</div>
       </div>
     </div>
 {{> footer}}

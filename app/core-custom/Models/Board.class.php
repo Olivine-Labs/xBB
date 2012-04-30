@@ -11,7 +11,6 @@ class Board extends Model
 {
   public		$Name   	        = null;
   public		$Description   	        = null;
-  public		$Administrators		= array();
   public		$Moderators	      = array();
   public        $ParentBoard = null;
   public function __construct()
