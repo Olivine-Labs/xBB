@@ -4,16 +4,15 @@ final class RequestHandler extends \Router\AuthenticationHandler
 {
   public function Request()
   {
-
-
     $this->addPartial("header", "public/header");
     $this->addPartial("footer", "public/footer");
+	$this->addPartial("user", "public/user");
 
-    $username = urldecode(\Common\GetLastPhrase($_SERVER['REQUEST_URI']));
+    $userId = urldecode(\Common\GetLastPhrase($_SERVER['REQUEST_URI']));
 
     $currentUser = $this->currentUser();
 
-    if($username == "")
+    if($userId == "")
     {
       $username = $currentUser->UserName;
 
@@ -21,29 +20,36 @@ final class RequestHandler extends \Router\AuthenticationHandler
       {
         $this->redirect("/Members/Login/");
       }
-      else
-      {
-        $this->redirect('/Members/'.$username);
-      }
+  
     }
 
     $user = new \Models\User();
-    $user->UserName = "$username";
+    $user->Id = $userId;
 
     if(\Controllers\Users::View($user))
     {
-
       if($user->UserName == $currentUser->UserName)
       {
         $this->_context->IsMe = true;
         $this->setCurrentContextUser($user);
       }
+		
+	  $search = new \Models\Search();
+      $search->Limit = 20;
+      $search->SortField = 'PostedOn';
+      $search->SortDirection = -1;
+      $search->PostedBy = $user->Id;
 
-      $this->_context->MemberUserName = $username;
-      $this->_context->Token = $user->Token;
+      $posts = \Controllers\Posts::ListBy($search);
+	  
+	  $this->_context->Posts = $posts;
+	  
+      $this->_context->MemberUserName = $user->UserName;
+     
       $this->_context->UserId = $user->UserId;
 
       $this->setTemplate('members/view');
+	  $this->addPartial("viewPosts", "topics/topic-template");
     }
   }
 }

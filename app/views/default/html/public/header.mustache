@@ -11,12 +11,12 @@
 
   <meta name="viewport" content="width=device-width">
 
-  <link rel="stylesheet" href="/xBB/app/css/bootstrap.css">
-  <link rel="stylesheet" href="/xBB/app/css/bootstrap-responsive.css">
+  <link rel="stylesheet" href="/app/css/bootstrap.css">
+  <link rel="stylesheet" href="/app/css/bootstrap-responsive.css">
 
-  <link rel="stylesheet" href="/xBB/app/css/styles.css">
+  <link rel="stylesheet" href="/app/css/styles.css">
 
-  <script src="/xBB/app/js/libs/modernizr-2.5.3.min.js"></script>
+  <script src="/app/js/libs/modernizr-2.5.3.min.js"></script>
 </head>
 <body>
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
@@ -24,6 +24,7 @@
   <header>
     <!-- breadcrumbs : list of forum board levels -->
     <ul class="breadcrumb">
+	<li><a href="/" class="ir">xBB</a></li>
                   {{#Breadcrumbs}}
               <li> / <a href="{{href}}">{{text}}</a></li>
             {{/Breadcrumbs}} 

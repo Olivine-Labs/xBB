@@ -2,19 +2,26 @@
         <div id="profile" class="pull-right">
           <div class="pull-right">
             <ul class="nav nav-list">
+			{{#CurrentUser}}
+                {{#LoggedIn}}
               <li>
-                <a href="/messages"><span class="icon-envelope"></span> 3 Messages</a>
+                <a href="/messages"><span class="icon-envelope"></span> 0 Messages</a>
               </li>
               <li>
-                <a href="/topics?filter=replies"><span class="icon-asterisk"></span> 14 New Replies</a>
+                <a href="/topics?filter=replies"><span class="icon-asterisk"></span> 0 New Replies</a>
               </li>
               <li>
-                <a href="/user/edit/12345"><span class="icon-user"></span> Settings</a>
+                <a href="/members/edit/{{Id}}"><span class="icon-user"></span> Settings</a>
               </li>
+
             </ul>
           </div>
-
-          <a href="/user/12345"><img src="http://placehold.it/64x64" alt="Jack Lawson"></a>
+          <a href="/members/{{Id}}"><img src="http://placehold.it/64x64" alt="Jack Lawson"></a>
+		    {{/ LoggedIn}}
+            {{^LoggedIn}}
+                 <a href="/Members/Login/" class="btn btn-primary"><span class="icon-user icon-white"></span>Login</a>
+            {{/LoggedIn}}
+        {{/CurrentUser}}
         </div>
       </div>
     </div>

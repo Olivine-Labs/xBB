@@ -4,14 +4,16 @@
 	<div class="row">
         <div class="hidden-phone">
             <div class="span1">
-              <div><span class="icon-eye-open"></span> 38</div>
-              <div><span class="icon-comment"></span> 14</div>
+              <div><span class="icon-eye-open"></span> {{Views}}</div>
+              <div><span class="icon-comment"></span> {{PostCount}}</div>
 
               <div class="btn-group">
                 <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">Actions <span class="caret"></span></button>
                 <ul class="dropdown-menu">
                   <li><a href="/Topics/{{Id}}"><span class="icon-comment"></span> View Topic</a></li>
-                  <li><a href="#"><span class="icon-user"></span> Jack Lawson's Profile</a></li>
+				  {{#Post}}
+					<li><a href="/members/{{PostedBy}}"><span class="icon-user"></span> {{PostedByName}}'s Profile</a></li>
+				  {{/Post}}
                   <li><a href="#"><span class="icon-cog"></span> Edit Topic</a></li>
                 </ul>
               </div>
@@ -21,14 +23,14 @@
         <div class="span11">
             <h1><a href="/Topics/{{Id}}">{{Name}}</a></h1>
             <p>
-              This is the first line of text for this topic; around 65 characters.
-              This is the first line of text for this topic; around 65 characters.
+             {{PostBeginning}}
             </p>
-
+			{{#Post}}
             <footer>
-              posted by <a href="/users/12345">Jack Lawson</a> on
-              <time datetime="2012-03-17T23:26:31-04:00" title="2012-03-17T23:26:31-04:00">March 3 11:26</time>.
+              posted by <a href="/members/{{PostedBy}}">{{PostedByName}}</a> on
+              <time datetime="{{{{FormattedPostedOn}}}}" title="{{{{FormattedPostedOn}}}}">{{ReadablePostedOn}}</time>.
             </footer>
+			{{/Post}}
         </div>
     </div>
  </article>

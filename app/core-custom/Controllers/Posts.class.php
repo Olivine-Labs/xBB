@@ -23,19 +23,19 @@ class Posts
   public static function Add(\Models\Post $post)
   {
     $session = \Classes\SessionHandler::getSession();
-    //if(array_key_exists(\Models\Session::FIELD_USER, $session->Data))
-    //{
+    if(array_key_exists(\Models\Session::FIELD_USER, $session->Data))
+    {
       $database = \Database\Controller::getInstance();
 
       $post->PostedOn = time();
-      //$post->PostedBy = $session->Data[\Models\Session::FIELD_USER]['Id'];
-      //$post->PostedByName = $session->Data[\Models\Session::FIELD_USER]['UserName'];
+      $post->PostedBy = $session->Data[\Models\Session::FIELD_USER]['Id'];
+      $post->PostedByName = $session->Data[\Models\Session::FIELD_USER]['UserName'];
 
 	  if($post->Verify())
       {
         return $database->Posts->Save($post);
       }
-    //} 
+    } 
 
     return false;
   }

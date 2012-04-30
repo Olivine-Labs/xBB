@@ -46,5 +46,10 @@ class Post extends Model
   {
     return date('c', $this->PostedOn);
   }
+  
+    public function ReadablePostedOn()
+  {
+    return date('F jS Y g:i A', $this->PostedOn);
+  }
 }
 ?>

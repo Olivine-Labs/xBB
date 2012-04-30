@@ -12,6 +12,7 @@ class Topic extends Model
 
   public  $Board	   = null;
   public  $Name   	   = null;
+  public $Views = null;
 
   public function __construct()
   {

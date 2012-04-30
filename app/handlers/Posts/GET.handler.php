@@ -110,7 +110,7 @@ final class RequestHandler extends \Router\AuthenticationHandler
     $this->addPartial("header", "public/header");
     $this->addPartial("footer", "public/footer");
 
-    if(!\Controllers\Posts::View($this->_context->Posts))
+    if(!\Controllers\Posts::View($this->_context->Post))
     {
       $this->setHTTPStatusCode(404);
       exit();
@@ -118,7 +118,7 @@ final class RequestHandler extends \Router\AuthenticationHandler
 
     $this->addPartial("viewPosts", "Posts/posts-template");
     $this->setTemplate('posts/view');
-
+	
     $currentUser = $this->currentUser();
 
     $this->_context->Post->IsMyQPosts = ($currentUser->Id == $this->_context->Post->PostedBy);

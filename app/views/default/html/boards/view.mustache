@@ -14,11 +14,9 @@
           <div class="span12">
             <ul class="nav nav-pills">
               <li class="nav-header">Latest Posts</li>
-              <li><a href="/topics/17" title="March 3 8:20PM">Pulling Submodules [14]</a></li>
-              <li><a href="/topics/18" title="March 3 7:28PM">MongoDB Config [8]</a></li>
-              <li><a href="/topics/19" title="March 3 6:03PM">v1agr4 ch33p [1]</a></li>
-              <li><a href="/topics/20" title="March 3 5:23PM">8====D~~ [39]</a></li>
-              <li><a href="/topics/21" title="March 3 4:40PM">Mint is Amazing and... [108]</a></li>
+			  {{#FirstFive}}
+              <li><a href="/topics/{{Id}}" title="{{LastPostDate}}">{{Name}} [{{PostCount}}]</a></li>
+			  {{/FirstFive}}
             </ul>
           </div>
         </div>

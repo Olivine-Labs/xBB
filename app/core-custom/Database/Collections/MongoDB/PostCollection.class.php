@@ -28,15 +28,15 @@ class PostCollection extends Collection implements \Database\Collections\PostInt
     $fields = array();
     $searchArray = array();
 	
-    // if($search->PostedBy)
-    // {
-      // $searchArray[] = array(self::FIELD_POSTEDBY => $search->PostedBy);
-    // }
+    if($search->PostedBy)
+    {
+      $searchArray[] = array(self::FIELD_POSTEDBY => $search->PostedBy);
+    }
 
-    // if($search->PostedByName)
-    // {
-      // $searchArray[] = array(self::FIELD_POSTEDBYNAME => $search->PostedByName);
-    // }
+    if($search->PostedByName)
+    {
+      $searchArray[] = array(self::FIELD_POSTEDBYNAME => $search->PostedByName);
+    }
 	
     if($search->Topic)
     {

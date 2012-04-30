@@ -8,7 +8,8 @@ final class RequestHandler extends \Router\AuthenticationHandler
       $search->SortField = 'Name';
       $search->SortDirection = 1;
       $boards = \Controllers\Boards::ListBy($search);
-		
+	  $currentUser = $this->currentUser();
+	  
 	  if (is_array($boards) && count($boards) > 0)
 	  {
 		$this->_context->Boards = $boards;
@@ -22,7 +23,6 @@ final class RequestHandler extends \Router\AuthenticationHandler
 
   public function AnonymousRequest()
   {
-   error_log(print_r($this->_context->CurrentUser, true));
     $this->redirect('/Members/Login/');
   }
 }

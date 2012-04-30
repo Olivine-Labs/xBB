@@ -1,8 +1,8 @@
 <?php
 
-final class RequestHandler extends \Router\AuthenticationHandler
+final class RequestHandler extends \Router\SecureHandler
 {
-  public function Request()
+  public function AuthenticatedRequest()
   {
        $currentUser = $this->currentUser();
 //    if(\Controllers\Boards::CheckAccess($currentUser, $board))
@@ -12,7 +12,7 @@ final class RequestHandler extends \Router\AuthenticationHandler
 	  $boardId = $_REQUEST['boardId'];
 	  $topic->Name = $_REQUEST['subject'];
 	  $topic->Board = $boardId;
-	  
+
 	  \Controllers\Topics::Add($topic);
 	  
 	  $post = new \Models\Post();
